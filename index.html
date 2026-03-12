@@ -14,73 +14,77 @@ html{scroll-behavior:smooth;}
   --text:#f2efe8;--muted:#7a7a85;--muted2:#3a3a42;
 }
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
 
 /* VIEWS */
 .view{display:none;}.view.active{display:block;}
 #page-home.active{display:flex;flex-direction:column;min-height:100vh;}
 
 /* LOADING */
-#loading-screen{
-  position:fixed;inset:0;background:var(--bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:1000;gap:24px;
-}
+#loading-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;gap:24px;}
 #loading-screen.hidden{display:none;}
-.loader-ring{
-  width:48px;height:48px;border-radius:50%;
-  border:3px solid var(--surface3);
-  border-top-color:#c9a84c;
-  animation:spin 0.8s linear infinite;
-}
+.loader-ring{width:48px;height:48px;border-radius:50%;border:3px solid var(--surface3);border-top-color:#c9a84c;animation:spin 0.8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .loader-text{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
 
 /* ERROR */
-#error-screen{
-  position:fixed;inset:0;background:var(--bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:1000;gap:16px;padding:40px;text-align:center;
-}
+#error-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;gap:16px;padding:40px;text-align:center;}
 #error-screen.hidden{display:none;}
-.err-icon{font-size:48px;}
-.err-title{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;}
-.err-msg{font-size:13px;color:var(--muted);max-width:480px;line-height:1.7;}
+.err-icon{font-size:48px;}.err-title{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;}
+.err-msg{font-size:13px;color:var(--muted);max-width:480px;line-height:1.7;white-space:pre-line;}
 .err-url{font-size:11px;color:#c9a84c;word-break:break-all;max-width:520px;background:var(--surface2);padding:10px 16px;border-radius:4px;margin-top:8px;}
 .retry-btn{margin-top:8px;padding:10px 24px;background:#c9a84c;color:#000;border:none;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;}
 
 /* NAV */
-.home-nav{padding:32px 56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.home-nav{padding:28px 56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
 .home-wordmark{font-family:'Syne',sans-serif;font-weight:800;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);}
 .home-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted2);}
 
 /* HERO */
-.home-hero{padding:80px 56px 64px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.home-hero{padding:60px 56px 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:start;}
+.hero-left{padding-bottom:60px;}
 .hero-glow{position:absolute;top:-120px;left:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(210,180,120,0.05) 0%,transparent 65%);pointer-events:none;}
 .hero-overline{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:#c9a84c;margin-bottom:28px;display:flex;align-items:center;gap:14px;}
 .hero-overline::before{content:'';width:20px;height:1px;background:#c9a84c;}
-.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(56px,8vw,108px);line-height:0.92;letter-spacing:-3px;margin-bottom:40px;}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(48px,6vw,96px);line-height:0.92;letter-spacing:-3px;margin-bottom:40px;}
 .hero-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#c9a84c;letter-spacing:-1px;}
-.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-.hero-desc{font-size:15px;line-height:1.8;color:var(--muted);max-width:480px;}
-.hero-meta{display:flex;gap:40px;flex-shrink:0;}
+.hero-desc{font-size:14px;line-height:1.8;color:var(--muted);max-width:440px;margin-bottom:32px;}
+.hero-meta{display:flex;gap:40px;}
 .hm-item{border-top:1px solid var(--border2);padding-top:14px;min-width:80px;}
-.hm-n{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;line-height:1;color:var(--text);}
+.hm-n{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;line-height:1;color:var(--text);}
 .hm-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+/* WORLD MAP PANEL */
+.hero-map-panel{
+  border-left:1px solid var(--border);
+  padding:32px 24px 0;
+  display:flex;flex-direction:column;gap:16px;
+  align-self:stretch;
+}
+.hmp-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted2);}
+.hmp-map{width:100%;flex:1;min-height:260px;position:relative;}
+.hmp-map svg{width:100%;height:100%;}
+.hmp-legend{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--muted);padding-bottom:24px;}
+.hmp-dot{width:8px;height:8px;border-radius:50%;background:#c9a84c;flex-shrink:0;}
+/* map country paths */
+.map-country{fill:var(--surface3);stroke:var(--bg);stroke-width:0.5;transition:fill 0.3s;}
+.map-country.active{fill:#c9a84c;}
+.map-country.active:hover{fill:#dbb95c;cursor:pointer;}
 
 /* AREAS */
 .areas-header{padding:40px 56px 16px;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:16px;}
 .areas-header::after{content:'';flex:1;height:1px;background:var(--border);}
 .areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:0 56px 56px;border:1px solid var(--border);}
-.area-tile{background:var(--surface);padding:40px 32px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:20px;position:relative;overflow:hidden;transition:background 0.2s;min-height:180px;}
+.area-tile{background:var(--surface);padding:32px 28px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:16px;position:relative;overflow:hidden;transition:background 0.2s;min-height:160px;}
 .area-tile::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
 .area-tile:hover{background:var(--surface2);}
 .area-tile:hover::before{transform:scaleX(1);}
 .area-tile:hover .at-arrow{opacity:1;transform:translateX(0);}
-.at-icon{font-size:32px;line-height:1;}
-.at-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;line-height:1.2;color:var(--text);flex:1;}
+/* SVG icon in tile */
+.at-icon{width:28px;height:28px;color:var(--ac);}
+.at-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.at-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;line-height:1.2;color:var(--text);flex:1;}
 .at-count{font-size:10px;color:var(--muted);}
-.at-arrow{position:absolute;top:28px;right:28px;font-size:16px;color:var(--ac);opacity:0;transform:translateX(-6px);transition:all 0.25s;}
+.at-arrow{position:absolute;top:24px;right:24px;font-size:16px;color:var(--ac);opacity:0;transform:translateX(-6px);transition:all 0.25s;}
 
 /* AREA PAGE */
 #page-area.active{display:block;min-height:100vh;}
@@ -90,84 +94,91 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .back-btn:hover{color:var(--text);}
 .tb-sep{width:1px;height:16px;background:var(--border2);}
 .tb-area{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;}
-.area-banner{padding:52px 56px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
-.ab-bg{position:absolute;top:-20px;right:-20px;font-family:'Syne',sans-serif;font-weight:800;font-size:220px;line-height:1;color:var(--ac);opacity:0.03;user-select:none;pointer-events:none;letter-spacing:-8px;}
+.area-banner{padding:48px 56px 36px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.ab-bg{position:absolute;top:-20px;right:-20px;font-family:'Syne',sans-serif;font-weight:800;font-size:200px;line-height:1;color:var(--ac);opacity:0.03;user-select:none;pointer-events:none;letter-spacing:-8px;}
 .ab-pill{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);margin-bottom:20px;}
-.ab-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-1px;margin-bottom:12px;}
+.ab-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,4vw,52px);line-height:1;letter-spacing:-1px;margin-bottom:12px;}
 .ab-sub{font-size:14px;line-height:1.7;color:var(--muted);max-width:580px;}
 
 /* FILTER */
-.filter-bar{display:flex;align-items:center;padding:0 56px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;gap:0;}
+.filter-bar{display:flex;align-items:center;padding:0 56px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
 .filter-bar::-webkit-scrollbar{display:none;}
-.ftab{padding:16px 18px;font-size:12px;font-weight:500;letter-spacing:0.5px;color:var(--muted);cursor:pointer;white-space:nowrap;border:none;border-bottom:2px solid transparent;background:none;transition:all 0.2s;display:flex;align-items:center;gap:7px;}
+.ftab{padding:16px 18px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;border:none;border-bottom:2px solid transparent;background:none;transition:all 0.2s;display:flex;align-items:center;gap:7px;}
 .ftab:hover{color:var(--text);}
 .ftab.active{color:var(--text);border-bottom-color:var(--ac);}
-.ftab-flag{font-size:15px;}
 .ftab-n{font-size:10px;padding:1px 6px;border-radius:10px;background:var(--surface3);color:var(--muted);}
+/* country code badge in filter */
+.ftab-cc{font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 5px;border-radius:2px;background:var(--surface3);color:var(--muted);}
 
 /* CARDS */
 .cards-zone{padding:40px 56px 80px;}
 .country-section{margin-bottom:48px;}
 .cs-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
-.cs-flag{font-size:22px;}
+.cs-map-thumb{width:52px;height:36px;background:var(--surface2);border:1px solid var(--border2);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.cs-map-thumb svg{width:48px;height:32px;}
+.cs-cc{font-family:'Syne',sans-serif;font-weight:800;font-size:11px;letter-spacing:2px;color:var(--muted);background:var(--surface3);padding:3px 7px;border-radius:2px;}
 .cs-name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;}
 .cs-count{font-size:11px;color:var(--muted);}
 .cards-grid-inner{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
-.init-card{background:var(--surface);padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;transition:background 0.2s;display:flex;flex-direction:column;gap:14px;}
+.init-card{background:var(--surface);padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;transition:background 0.2s;display:flex;flex-direction:column;gap:12px;}
 .init-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--ac);transform:scaleY(0);transform-origin:center;transition:transform 0.25s;}
 .init-card:hover{background:var(--surface2);}
 .init-card:hover::before{transform:scaleY(1);}
 .init-card:hover .ic-arrow{opacity:1;transform:translateX(0);}
 .ic-lever{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:2px;border:1px solid currentColor;width:fit-content;}
 .lev-nudge{color:#7ec8a8;}.lev-restrict{color:#c8a87e;}.lev-mandatory{color:#c87e7e;}.lev-forbid{color:#a07ec8;}.lev-other{color:#888;}
-.ic-title{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.3;color:var(--text);flex:1;}
+.ic-title{font-family:'Instrument Serif',serif;font-size:16px;line-height:1.3;color:var(--text);flex:1;}
+.ic-desc{font-size:11px;line-height:1.6;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .ic-chips{display:flex;flex-wrap:wrap;gap:6px;}
-.ic-chip{font-size:10px;font-weight:400;letter-spacing:0.3px;padding:3px 9px;border-radius:20px;background:var(--surface3);color:var(--muted);}
+.ic-chip{font-size:10px;padding:3px 9px;border-radius:20px;background:var(--surface3);color:var(--muted);}
 .ic-arrow{position:absolute;bottom:20px;right:20px;font-size:18px;color:var(--ac);opacity:0;transform:translateX(-5px);transition:all 0.22s;}
 
 /* DETAIL */
 #page-detail.active{display:block;min-height:100vh;}
 .detail-topbar{padding:0 56px;height:60px;display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;background:rgba(10,10,11,0.95);backdrop-filter:blur(16px);}
-.detail-body{padding:48px 56px 80px;max-width:1100px;}
+.detail-body{padding:48px 56px 80px;}
 .country-card{background:#fff;color:#111;border-radius:2px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);font-family:'DM Sans',sans-serif;}
 .card-header{background:#2d3270;padding:22px 32px 18px;display:flex;align-items:center;justify-content:space-between;position:relative;}
 .card-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#c0392b;}
-.card-h-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(20px,3vw,32px);color:#fff;line-height:1.1;letter-spacing:-0.3px;padding-right:20px;flex:1;}
+.card-h-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(18px,2.5vw,28px);color:#fff;line-height:1.2;letter-spacing:-0.3px;padding-right:20px;flex:1;}
 .card-h-meta{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);white-space:nowrap;flex-shrink:0;text-align:right;line-height:1.4;}
 .card-h-meta span{display:block;font-size:10px;font-weight:400;color:rgba(255,255,255,0.55);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
-.card-body{display:grid;grid-template-columns:380px 1fr;min-height:500px;}
+/* TWO COL: left fixed, right fills rest — no blank space */
+.card-body{display:grid;grid-template-columns:320px 1fr;}
 .card-left{border-right:1px solid #e0e0e0;display:flex;flex-direction:column;}
-.card-map-zone{background:#f0f2f8;padding:32px 32px 24px;display:flex;align-items:center;justify-content:center;min-height:180px;position:relative;overflow:hidden;}
-.card-map-flag{font-size:96px;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.12));user-select:none;}
-.card-map-country-name{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#2d3270;opacity:0.6;}
-.card-snapshot{border-top:1px solid #e0e0e0;}
-.card-snapshot-header{background:#d8dae8;padding:9px 24px;font-size:11px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;}
-.card-snapshot-table{padding:14px 24px 16px;}
-.snap-row{display:flex;align-items:baseline;padding:4px 0;border-bottom:1px dotted #ddd;gap:8px;}
+/* country map zone */
+.card-map-zone{background:#f0f2f8;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:160px;}
+.card-map-svg{width:160px;height:100px;overflow:visible;}
+.card-map-svg path{fill:#2d3270;opacity:0.85;}
+.card-map-cc{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;letter-spacing:3px;color:#2d3270;opacity:0.7;}
+.card-map-name{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2d3270;opacity:0.5;}
+.card-snapshot{border-top:1px solid #e0e0e0;flex:1;}
+.card-snapshot-header{background:#d8dae8;padding:8px 20px;font-size:10px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;}
+.card-snapshot-table{padding:12px 20px 14px;}
+.snap-row{display:flex;align-items:baseline;padding:3px 0;border-bottom:1px dotted #ddd;gap:8px;}
 .snap-row:last-child{border-bottom:none;}
-.snap-label{font-size:11px;color:#444;flex:0 0 auto;max-width:160px;}
-.snap-val{font-size:11px;font-weight:700;color:#111;text-align:right;flex:1;}
-.card-right{display:flex;flex-direction:column;}
+.snap-label{font-size:10px;color:#555;flex:0 0 auto;max-width:130px;}
+.snap-val{font-size:10px;font-weight:600;color:#111;text-align:right;flex:1;}
+/* right col fills exactly — no overflow */
+.card-right{display:flex;flex-direction:column;min-width:0;}
 .card-section{border-bottom:1px solid #e0e0e0;display:flex;flex-direction:column;}
-.card-section:last-child{border-bottom:none;}
-.card-section-header{background:#d8dae8;padding:9px 24px;font-size:11px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;}
-.card-section-text{padding:14px 24px;font-size:12px;line-height:1.7;color:#333;flex:1;}
-.card-section-sub{border-top:1px solid #e8e8e8;padding:12px 24px;font-size:12px;line-height:1.7;color:#444;background:#fafafa;}
+.card-section:last-child{border-bottom:none;flex:1;}
+.card-section-header{background:#d8dae8;padding:8px 20px;font-size:10px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;flex-shrink:0;}
+.card-section-text{padding:12px 20px;font-size:12px;line-height:1.75;color:#333;flex:1;}
+.card-section-sub{border-top:1px solid #eee;padding:10px 20px;font-size:11px;line-height:1.7;color:#555;background:#fafafa;}
 .card-footer{border-top:1px solid #e0e0e0;}
-.card-footer-header{background:#d8dae8;padding:9px 24px;font-size:11px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;}
-.card-footer-text{padding:14px 32px 18px;font-size:12px;line-height:1.75;color:#333;}
+.card-footer-header{background:#d8dae8;padding:8px 20px;font-size:10px;font-weight:700;letter-spacing:1px;text-align:center;color:#2d3270;text-transform:uppercase;}
+.card-footer-text{padding:12px 28px 16px;font-size:12px;line-height:1.75;color:#333;}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .fu{animation:fadeUp 0.4s ease forwards;}
 .fu1{animation-delay:.04s;opacity:0;}.fu2{animation-delay:.10s;opacity:0;}.fu3{animation-delay:.16s;opacity:0;}
-
-/* SCROLL TO TOP */
 .stt{position:fixed;bottom:28px;right:28px;width:40px;height:40px;border-radius:50%;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;opacity:0;transform:translateY(8px);transition:all 0.3s;}
 .stt.vis{opacity:1;transform:translateY(0);}
-.stt:hover{color:var(--text);}
 
-@media(max-width:900px){
+@media(max-width:960px){
+  .home-hero{grid-template-columns:1fr;}.hero-map-panel{display:none;}
   .home-nav,.home-hero,.areas-header{padding-left:24px;padding-right:24px;}
   .areas-grid{grid-template-columns:repeat(2,1fr);margin:0 24px 40px;}
   .area-topbar,.area-banner,.filter-bar,.cards-zone,.detail-topbar,.detail-body{padding-left:24px;padding-right:24px;}
@@ -176,52 +187,51 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 }
 @media(max-width:560px){
   .areas-grid{grid-template-columns:1fr;}
-  .hero-title{font-size:52px;}
+  .hero-title{font-size:44px;}
   .cards-grid-inner{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- LOADING -->
-<div id="loading-screen">
-  <div class="loader-ring"></div>
-  <div class="loader-text">Loading initiatives…</div>
-</div>
-
-<!-- ERROR -->
+<div id="loading-screen"><div class="loader-ring"></div><div class="loader-text">Loading initiatives…</div></div>
 <div id="error-screen" class="hidden">
   <div class="err-icon">⚠️</div>
   <div class="err-title">Could not load data</div>
-  <div class="err-msg" id="err-msg">Unable to reach the Google Sheet. Make sure the Apps Script is deployed with "Anyone" access and the URL is correct.</div>
+  <div class="err-msg" id="err-msg"></div>
   <div class="err-url" id="err-url"></div>
   <button class="retry-btn" onclick="init()">Retry</button>
 </div>
 
-<!-- PAGE 1: HOME -->
+<!-- HOME -->
 <div id="page-home" class="view">
   <nav class="home-nav">
     <div class="home-wordmark">Youth Health Playbook</div>
     <div class="home-tag">Global Frameworks · 2024</div>
   </nav>
   <section class="home-hero">
-    <div class="hero-glow"></div>
-    <div class="hero-overline fu">International Initiatives Framework</div>
-    <h1 class="hero-title fu fu1">The <em>Youth</em><br>Health<br>Playbook</h1>
-    <div class="hero-bottom fu fu2">
-      <p class="hero-desc">A curated intelligence report on the world's most effective youth health interventions — spanning multiple countries, focus areas, and every lever from soft nudge to hard law.</p>
-      <div class="hero-meta">
+    <div class="hero-left">
+      <div class="hero-glow"></div>
+      <div class="hero-overline fu">International Initiatives Framework</div>
+      <h1 class="hero-title fu fu1">The <em>Youth</em><br>Health<br>Playbook</h1>
+      <p class="hero-desc fu fu2">A curated intelligence report on the world's most effective youth health interventions — spanning multiple countries, focus areas, and every lever from soft nudge to hard law.</p>
+      <div class="hero-meta fu fu2">
         <div class="hm-item"><div class="hm-n" id="stat-initiatives">—</div><div class="hm-l">Initiatives</div></div>
         <div class="hm-item"><div class="hm-n" id="stat-countries">—</div><div class="hm-l">Countries</div></div>
         <div class="hm-item"><div class="hm-n" id="stat-areas">—</div><div class="hm-l">Focus Areas</div></div>
       </div>
+    </div>
+    <div class="hero-map-panel">
+      <div class="hmp-label">Countries with initiatives</div>
+      <div class="hmp-map" id="world-map-container"></div>
+      <div class="hmp-legend"><div class="hmp-dot"></div><span id="map-legend-text">Loading…</span></div>
     </div>
   </section>
   <div class="areas-header fu fu3">Select a Focus Area</div>
   <div class="areas-grid" id="areas-grid"></div>
 </div>
 
-<!-- PAGE 2: AREA -->
+<!-- AREA -->
 <div id="page-area" class="view">
   <div class="area-topbar">
     <button class="back-btn" onclick="goHome()">All Areas</button>
@@ -238,7 +248,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <div class="cards-zone" id="cards-zone"></div>
 </div>
 
-<!-- PAGE 3: DETAIL -->
+<!-- DETAIL -->
 <div id="page-detail" class="view">
   <div class="detail-topbar">
     <button class="back-btn" id="detail-back-btn">Back</button>
@@ -251,166 +261,252 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 <button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-/* ─── CONFIG ─────────────────────────────────────────── */
+/* ── CONFIG ── */
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxznRKiAZWML1CTmKrKwnD6Rt36yBay4l4j0fQrrvEw62d01tJ_mWteL0YdSpmtInkz/exec';
 
-/* Area colours & icons — matched by lowercase area name substring */
-const AREA_STYLES = [
-  {match:'nutrition',    icon:'🥗', hex:'#d4a84b'},
-  {match:'mental',       icon:'🧠', hex:'#7eb8d8'},
-  {match:'digital',      icon:'📱', hex:'#a898d8'},
-  {match:'physical',     icon:'🏃', hex:'#78c8a0'},
-  {match:'substance',    icon:'🚭', hex:'#d8986a'},
-  {match:'reproductive', icon:'🌸', hex:'#d878a8'},
-  {match:'sleep',        icon:'😴', hex:'#8898c8'},
-  {match:'sanitation',   icon:'🦷', hex:'#a8c878'},
-  {match:'sexual',       icon:'🌸', hex:'#d878a8'},
-];
-const DEFAULT_COLOURS = ['#c9a84c','#7eb8d8','#78c8a0','#d8986a','#a898d8','#d878a8','#8898c8','#a8c878','#c87e7e','#7ec8a8'];
+/* ── COUNTRY DATA ── */
+const COUNTRY_META = {
+  'australia':     {cc:'AU', name:'Australia'},
+  'austria':       {cc:'AT', name:'Austria'},
+  'belgium':       {cc:'BE', name:'Belgium'},
+  'brazil':        {cc:'BR', name:'Brazil'},
+  'canada':        {cc:'CA', name:'Canada'},
+  'china':         {cc:'CN', name:'China'},
+  'denmark':       {cc:'DK', name:'Denmark'},
+  'finland':       {cc:'FI', name:'Finland'},
+  'france':        {cc:'FR', name:'France'},
+  'germany':       {cc:'DE', name:'Germany'},
+  'india':         {cc:'IN', name:'India'},
+  'ireland':       {cc:'IE', name:'Ireland'},
+  'israel':        {cc:'IL', name:'Israel'},
+  'italy':         {cc:'IT', name:'Italy'},
+  'japan':         {cc:'JP', name:'Japan'},
+  'mexico':        {cc:'MX', name:'Mexico'},
+  'netherlands':   {cc:'NL', name:'Netherlands'},
+  'new zealand':   {cc:'NZ', name:'New Zealand'},
+  'norway':        {cc:'NO', name:'Norway'},
+  'singapore':     {cc:'SG', name:'Singapore'},
+  'south korea':   {cc:'KR', name:'South Korea'},
+  'spain':         {cc:'ES', name:'Spain'},
+  'sweden':        {cc:'SE', name:'Sweden'},
+  'switzerland':   {cc:'CH', name:'Switzerland'},
+  'uae':           {cc:'AE', name:'UAE'},
+  'united arab emirates':{cc:'AE', name:'UAE'},
+  'uk':            {cc:'GB', name:'UK'},
+  'united kingdom':{cc:'GB', name:'UK'},
+  'usa':           {cc:'US', name:'USA'},
+  'united states': {cc:'US', name:'USA'},
+  'eu':            {cc:'EU', name:'EU'},
+  'iceland':       {cc:'IS', name:'Iceland'},
+  'portugal':      {cc:'PT', name:'Portugal'},
+};
+function getMeta(country){return COUNTRY_META[country.toLowerCase()]||{cc:country.slice(0,2).toUpperCase(),name:country};}
 
+/* Simple world map SVG paths keyed by ISO2 */
+const MAP_PATHS = {
+  US:'M 60,85 L 110,85 L 115,95 L 105,105 L 65,105 L 55,95 Z',
+  CA:'M 60,55 L 115,55 L 115,83 L 60,83 Z',
+  MX:'M 65,107 L 105,107 L 100,125 L 70,125 Z',
+  GB:'M 195,70 L 202,70 L 204,80 L 196,82 Z',
+  FR:'M 196,84 L 210,84 L 211,95 L 197,96 Z',
+  DE:'M 210,72 L 222,72 L 223,84 L 211,85 Z',
+  NL:'M 204,70 L 212,70 L 213,78 L 205,79 Z',
+  BE:'M 203,79 L 211,79 L 212,86 L 204,87 Z',
+  SE:'M 215,50 L 224,48 L 226,68 L 216,70 Z',
+  NO:'M 205,46 L 218,44 L 219,58 L 206,60 Z',
+  DK:'M 210,63 L 217,63 L 218,70 L 211,71 Z',
+  FI:'M 222,46 L 232,44 L 234,64 L 223,66 Z',
+  IE:'M 188,70 L 194,70 L 195,80 L 189,81 Z',
+  ES:'M 190,92 L 208,92 L 209,104 L 191,105 Z',
+  IT:'M 210,96 L 220,94 L 224,112 L 214,115 Z',
+  AT:'M 212,85 L 224,85 L 225,92 L 213,93 Z',
+  CH:'M 205,87 L 213,87 L 214,94 L 206,95 Z',
+  PT:'M 186,92 L 192,92 L 193,104 L 187,105 Z',
+  PL:'M 222,72 L 233,72 L 234,83 L 223,84 Z',
+  IS:'M 178,52 L 187,51 L 188,60 L 179,61 Z',
+  IL:'M 235,100 L 240,100 L 241,108 L 236,109 Z',
+  AE:'M 252,110 L 262,108 L 264,116 L 254,118 Z',
+  IN:'M 268,100 L 290,98 L 292,128 L 270,130 Z',
+  CN:'M 295,75 L 340,72 L 342,108 L 297,111 Z',
+  JP:'M 342,82 L 354,80 L 356,96 L 344,98 Z',
+  KR:'M 330,88 L 340,87 L 341,96 L 331,97 Z',
+  SG:'M 312,140 L 318,140 L 319,146 L 313,147 Z',
+  AU:'M 300,155 L 355,153 L 357,185 L 302,187 Z',
+  NZ:'M 358,175 L 368,173 L 370,190 L 360,192 Z',
+  BR:'M 105,135 L 150,132 L 153,175 L 108,178 Z',
+  EU:'M 196,70 L 235,68 L 237,115 L 198,117 Z', // bounding box EU
+};
+
+/* Minimal inline SVG world map (simplified continents as background) */
+const WORLD_BG = `<rect x="0" y="45" width="130" height="100" rx="2" fill="#1a1a1f"/>
+<rect x="185" y="44" width="65" height="80" rx="2" fill="#1a1a1f"/>
+<rect x="225" y="90" width="30" height="50" rx="2" fill="#1a1a1f"/>
+<rect x="240" y="95" width="110" height="55" rx="2" fill="#1a1a1f"/>
+<rect x="290" y="70" width="75" height="45" rx="2" fill="#1a1a1f"/>
+<rect x="295" y="148" width="70" height="45" rx="2" fill="#1a1a1f"/>
+<rect x="95" y="128" width="60" height="55" rx="2" fill="#1a1a1f"/>
+<rect x="350" y="165" width="20" height="30" rx="2" fill="#1a1a1f"/>`;
+
+function buildWorldMapSVG(activeCCs, w=380, h=220){
+  const svgPaths = Object.entries(MAP_PATHS).map(([cc, d])=>{
+    const isActive = activeCCs.has(cc);
+    return `<path d="${d}" fill="${isActive?'#c9a84c':'#2a2a32'}" stroke="#0a0a0b" stroke-width="0.8" opacity="${isActive?1:0.6}"/>`;
+  }).join('');
+  return `<svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+    <rect width="420" height="220" fill="#0d0d10"/>
+    ${WORLD_BG}
+    ${svgPaths}
+  </svg>`;
+}
+
+/* Country detail map — just a styled badge with CC */
+function buildCountryBadge(country){
+  const meta = getMeta(country);
+  const cc = meta.cc;
+  const d = MAP_PATHS[cc];
+  if(d){
+    return `<svg class="card-map-svg" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+      <rect width="420" height="220" fill="#f0f2f8"/>
+      ${WORLD_BG.replace(/fill="#1a1a1f"/g,'fill="#dde0ee"')}
+      <path d="${d}" fill="#2d3270" stroke="#fff" stroke-width="1.5"/>
+    </svg>`;
+  }
+  // fallback — just the CC badge
+  return `<div style="font-family:Syne,sans-serif;font-weight:800;font-size:28px;color:#2d3270;opacity:0.5;">${cc}</div>`;
+}
+
+/* ── AREA STYLES ── */
+const AREA_STYLES = [
+  {match:'nutrition',    hex:'#d4a84b', svg:'<circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>'},
+  {match:'mental',       hex:'#7eb8d8', svg:'<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v.5a2 2 0 0 1-2 2H9a2 2 0 0 0-2 2v1a2 2 0 0 1-2 2 2 2 0 0 1 2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v.5A2.5 2.5 0 0 1 9.5 22"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v.5a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v1a2 2 0 0 0 2 2 2 2 0 0 0-2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 0-2 2v.5A2.5 2.5 0 0 0 14.5 22"/>'},
+  {match:'digital',      hex:'#a898d8', svg:'<rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/>'},
+  {match:'physical',     hex:'#78c8a0', svg:'<circle cx="12" cy="5" r="2"/><path d="m3 16 4-4 4 4 4-6 3 3"/><path d="M17 20v-6"/>'},
+  {match:'substance',    hex:'#d8986a', svg:'<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 17.8A2 2 0 0 0 6.5 21h11a2 2 0 0 0 1.78-3.204l-5.069-7.377A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>'},
+  {match:'reproductive', hex:'#d878a8', svg:'<path d="M12 22V12"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/><path d="M6.168 8.5A9 9 0 0 0 3.1 12"/><path d="M17.832 8.5A9 9 0 0 1 20.9 12"/>'},
+  {match:'sleep',        hex:'#8898c8', svg:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'},
+  {match:'sanitation',   hex:'#a8c878', svg:'<path d="M12 2a5 5 0 1 0 5 5"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M2 16s2-1 5-1 5 1 8 1 5-1 5-1v5s-2 1-5 1-5-1-8-1-5 1-5 1Z"/>'},
+  {match:'sexual',       hex:'#d878a8', svg:'<circle cx="12" cy="5" r="3"/><path d="M12 22V12"/>'},
+];
+const DEFAULT_COLOURS=['#c9a84c','#7eb8d8','#78c8a0','#d8986a','#a898d8','#d878a8','#8898c8','#a8c878'];
 function areaStyle(name){
-  const lc = name.toLowerCase();
-  const found = AREA_STYLES.find(s => lc.includes(s.match));
-  return found || {icon:'📋', hex: DEFAULT_COLOURS[Math.abs(hashStr(name)) % DEFAULT_COLOURS.length]};
+  const lc=name.toLowerCase();
+  return AREA_STYLES.find(s=>lc.includes(s.match))||{hex:DEFAULT_COLOURS[Math.abs(hashStr(name))%DEFAULT_COLOURS.length],svg:'<circle cx="12" cy="12" r="9"/>'};
 }
 function hashStr(s){let h=0;for(let i=0;i<s.length;i++)h=(Math.imul(31,h)+s.charCodeAt(i))|0;return h;}
 
-/* Country flags */
-const FLAGS = {
-  'australia':'🇦🇺','austria':'🇦🇹','belgium':'🇧🇪','brazil':'🇧🇷','canada':'🇨🇦',
-  'china':'🇨🇳','denmark':'🇩🇰','finland':'🇫🇮','france':'🇫🇷','germany':'🇩🇪',
-  'india':'🇮🇳','ireland':'🇮🇪','israel':'🇮🇱','italy':'🇮🇹','japan':'🇯🇵',
-  'mexico':'🇲🇽','netherlands':'🇳🇱','new zealand':'🇳🇿','norway':'🇳🇴',
-  'singapore':'🇸🇬','south korea':'🇰🇷','spain':'🇪🇸','sweden':'🇸🇪',
-  'switzerland':'🇨🇭','uae':'🇦🇪','united arab emirates':'🇦🇪','uk':'🇬🇧',
-  'united kingdom':'🇬🇧','usa':'🇺🇸','united states':'🇺🇸','eu':'🇪🇺',
-  'iceland':'🇮🇸','portugal':'🇵🇹','greece':'🇬🇷','poland':'🇵🇱',
-};
-function flagOf(country){return FLAGS[country.toLowerCase()] || '🌐';}
-
-/* Lever styling */
+/* ── LEVER ── */
 function leverCls(l=''){
   const lc=l.toLowerCase();
-  if(lc.includes('nudge'))      return 'lev-nudge';
-  if(lc.includes('restrict'))   return 'lev-restrict';
-  if(lc.includes('mandatory'))  return 'lev-mandatory';
-  if(lc.includes('forbid')||lc.includes('ban')) return 'lev-forbid';
+  if(lc.includes('nudge'))return 'lev-nudge';
+  if(lc.includes('restrict'))return 'lev-restrict';
+  if(lc.includes('mandatory'))return 'lev-mandatory';
+  if(lc.includes('forbid')||lc.includes('ban'))return 'lev-forbid';
   return 'lev-other';
 }
 
-/* ─── STATE ──────────────────────────────────────────── */
-let AREAS = [];       // [{id, label, icon, hex, initiatives:[]}]
-let activeArea = null;
-let activeFilter = 'all';
+/* ── STATE ── */
+let AREAS=[];
+let activeArea=null;
+let activeFilter='all';
 
-/* ─── COLUMN MAP ─────────────────────────────────────── */
-// Maps sheet column header → internal key
-// Handles both exact and fuzzy matching
+/* ── COLUMN MAP ── */
 function mapRow(raw){
-  // Normalise keys
-  const r = {};
-  Object.keys(raw).forEach(k => { r[k.toLowerCase().replace(/[\s\n\r]+/g,'_')] = raw[k]; });
+  const r={};
+  Object.keys(raw).forEach(k=>{
+    const nk=k.toLowerCase().replace(/[\s\n\r()"]+/g,'_').replace(/_+/g,'_').replace(/^_|_$/g,'');
+    r[nk]=raw[k];
+  });
+  // Build a rich description from multiple fields as fallback
+  const purposeRaw = r['purpose_of_intervention']||r['purpose']||'';
+  const mechanismsRaw = r['support_activities_and_mechanisms']||r['mechanisms']||'';
+  const touchpointRaw = r['cohort_touchpoint_mechanism']||r['program_delivery']||r['touchpoint']||'';
+  // Compose a guaranteed description
+  let desc = purposeRaw || mechanismsRaw || touchpointRaw || r['other_remarks'] || r['overall_outcomes'] || '';
+  if(!desc && r['initiative']) desc = `${r['initiative']} is an initiative in ${r['country']||'the country'} focused on youth health.`;
 
   return {
-    title:       r['initiative']                        || r['initiative_name'] || r['title'] || '',
-    country:     r['country']                           || '',
-    area:        r['areas_of_focus']                    || r['area'] || r['area_of_focus'] || '',
-    scope:       r['administrative_scope']              || r['scope'] || '',
-    cohort:      r['target_cohort']                     || r['cohort'] || '',
-    purpose:     r['purpose_of_intervention']           || r['purpose'] || '',
-    lever:       r['lever']                             || '',
-    touchpoint:  r['cohort_touchpoint_mechanism']       || r['touchpoint'] || '',
-    mechanisms:  r['support_activities_and_mechanisms'] || r['mechanisms'] || '',
-    admin:       r['program_administration_and_delivery_persons'] || r['admin'] || '',
-    legal:       r['legal_and_political']               || r['legal'] || '',
-    social:      r['"social\n(public_support_and_acceptance)"'] || r['social_(public_support_and_acceptance)'] || r['social'] || '',
-    economic:    r['economic']                          || '',
-    monitoring:  r['monitoring_mechnanism']             || r['monitoring_mechanism'] || r['monitoring'] || '',
-    indicators:  r['measurement_indicators']            || r['indicators'] || '',
-    quantitative:r['quantitative_impact']               || r['quantitative'] || '',
-    outcomes:    r['overall_outcomes']                  || r['outcomes'] || '',
-    adoption:    r['adoption_by_others']                || r['adoption'] || '',
-    remarks:     r['other_remarks']                     || r['remarks'] || '',
+    title:        r['initiative']||r['initiative_name']||r['title']||'',
+    country:      r['country']||'',
+    area:         r['program_intent']||r['areas_of_focus']||r['area_of_focus']||r['area']||'',
+    scope:        r['administrative_scope']||r['scope']||'',
+    cohort:       r['target_cohort']||r['cohort']||'',
+    purpose:      purposeRaw,
+    desc:         desc,   // guaranteed non-empty description
+    lever:        r['lever']||'',
+    touchpoint:   touchpointRaw,
+    mechanisms:   mechanismsRaw,
+    admin:        r['program_administration_and_delivery_persons']||r['admin']||'',
+    legal:        r['legal_and_political']||r['enabling_factors']||r['legal']||'',
+    social:       r['social_public_support_and_acceptance']||r['social']||'',
+    economic:     r['economic']||'',
+    monitoring:   r['monitoring_mechnanism']||r['program_evaluation']||r['monitoring_mechanism']||r['monitoring']||'',
+    indicators:   r['measurement_indicators']||r['indicators']||'',
+    quantitative: r['quantitative_impact']||r['quantitative']||'',
+    outcomes:     r['overall_outcomes']||r['outcomes']||'',
+    adoption:     r['adoption_by_others']||r['adoption']||'',
+    remarks:      r['other_remarks']||r['remarks']||'',
   };
 }
 
-/* ─── FETCH & PARSE ──────────────────────────────────── */
+/* ── FETCH ── */
 async function init(){
   showLoading();
   document.getElementById('error-screen').classList.add('hidden');
-
-  // Try fetch first, fall back to JSONP if CORS blocks it
-  try {
-    const res = await Promise.race([
-      fetch(SHEET_URL + '?t=' + Date.now(), {mode:'cors'}),
-      new Promise((_,rej) => setTimeout(()=>rej(new Error('Timeout after 10s')), 10000))
+  try{
+    const res=await Promise.race([
+      fetch(SHEET_URL+'?t='+Date.now(),{mode:'cors'}),
+      new Promise((_,rej)=>setTimeout(()=>rej(new Error('Timeout after 10s')),10000))
     ]);
-    if(!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
-    const json = await res.json();
-    if(!Array.isArray(json) || json.length === 0) throw new Error('Sheet returned empty data. Check your sheet has rows below the header.');
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const json=await res.json();
+    if(!Array.isArray(json)||json.length===0)throw new Error('Sheet returned empty data.');
     processData(json);
-  } catch(err){
-    // CORS or network error — try JSONP as fallback
-    console.warn('fetch failed, trying JSONP:', err.message);
+  }catch(err){
     tryJSONP();
   }
 }
-
 function tryJSONP(){
-  const cbName = 'yhp_cb_' + Date.now();
-  const script = document.createElement('script');
-  const timer = setTimeout(()=>{
+  const cbName='yhp_cb_'+Date.now();
+  const script=document.createElement('script');
+  const timer=setTimeout(()=>{cleanup();showError('Failed to load data.\n\nCheck:\n1. Apps Script is deployed with "Anyone" access\n2. Script URL is correct\n3. Sheet name is correct');},10000);
+  window[cbName]=function(data){
     cleanup();
-    showError('Both fetch and JSONP failed.\n\nMost likely cause: the Claude artifact sandbox blocks outbound requests to script.google.com.\n\nSolution: open this HTML file in a normal browser tab instead — it will work perfectly there.');
-  }, 10000);
-
-  window[cbName] = function(data){
-    cleanup();
-    if(!Array.isArray(data) || data.length===0){
-      showError('Sheet returned empty data. Make sure rows exist below the header row.');
-      return;
-    }
+    if(!Array.isArray(data)||data.length===0){showError('Sheet returned empty data.');return;}
     processData(data);
   };
-
-  function cleanup(){ clearTimeout(timer); delete window[cbName]; if(script.parentNode) script.parentNode.removeChild(script); }
-  script.src = SHEET_URL + '?callback=' + cbName + '&t=' + Date.now();
-  script.onerror = ()=>{ cleanup(); showError('Script load failed. The Apps Script URL may be incorrect or not deployed for "Anyone" access.'); };
+  function cleanup(){clearTimeout(timer);delete window[cbName];if(script.parentNode)script.parentNode.removeChild(script);}
+  script.src=SHEET_URL+'?callback='+cbName+'&t='+Date.now();
+  script.onerror=()=>{cleanup();showError('Could not reach Apps Script. Check the URL and deployment settings.');};
   document.head.appendChild(script);
 }
-
 function processData(json){
-  const rows = json.map(mapRow).filter(r => r.title && r.country);
-  if(rows.length === 0){
-    showError('Data was fetched but no valid rows found.\n\nMake sure your sheet has an "Initiative" column and a "Country" column with data.');
-    return;
-  }
+  const rows=json.map(mapRow).filter(r=>r.title&&r.country);
+  if(!rows.length){showError('No valid rows found.\nMake sure your sheet has "Initiative" and "Country" columns with data.');return;}
   buildAreas(rows);
   buildHome();
   hideLoading();
   show('page-home');
 }
-
 function buildAreas(rows){
-  const map = {};
-  rows.forEach(r => {
-    const areaName = r.area || 'Other';
-    if(!map[areaName]) map[areaName] = [];
-    map[areaName].push(r);
+  const map={};
+  rows.forEach(r=>{
+    const a=r.area||'Other';
+    if(!map[a])map[a]=[];
+    map[a].push(r);
   });
-  AREAS = Object.keys(map).sort().map((name, i) => {
-    const style = areaStyle(name);
-    return { id: 'area_'+i, label: name, icon: style.icon, hex: style.hex, initiatives: map[name] };
+  AREAS=Object.keys(map).sort().map((name,i)=>{
+    const style=areaStyle(name);
+    return{id:'area_'+i,label:name,icon:style.svg,hex:style.hex,initiatives:map[name]};
   });
 }
 
-/* ─── UI HELPERS ─────────────────────────────────────── */
-function showLoading(){ document.getElementById('loading-screen').classList.remove('hidden'); }
-function hideLoading(){ document.getElementById('loading-screen').classList.add('hidden'); }
+/* ── UI ── */
+function showLoading(){document.getElementById('loading-screen').classList.remove('hidden');}
+function hideLoading(){document.getElementById('loading-screen').classList.add('hidden');}
 function showError(msg){
   hideLoading();
-  document.getElementById('err-msg').textContent = msg;
-  document.getElementById('err-url').textContent = SHEET_URL;
+  document.getElementById('err-msg').textContent=msg;
+  document.getElementById('err-url').textContent=SHEET_URL;
   document.getElementById('error-screen').classList.remove('hidden');
 }
 function show(id){
@@ -418,189 +514,190 @@ function show(id){
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
-function goHome(){ show('page-home'); activeArea=null; }
+function goHome(){show('page-home');activeArea=null;}
 
-/* ─── HOME ───────────────────────────────────────────── */
+/* ── HOME ── */
 function buildHome(){
-  const totalInit = AREAS.reduce((s,a)=>s+a.initiatives.length,0);
-  const totalCountries = new Set(AREAS.flatMap(a=>a.initiatives.map(i=>i.country))).size;
-  document.getElementById('stat-initiatives').textContent = totalInit;
-  document.getElementById('stat-countries').textContent = totalCountries;
-  document.getElementById('stat-areas').textContent = AREAS.length;
+  const totalInit=AREAS.reduce((s,a)=>s+a.initiatives.length,0);
+  const totalCountries=new Set(AREAS.flatMap(a=>a.initiatives.map(i=>i.country))).size;
+  document.getElementById('stat-initiatives').textContent=totalInit;
+  document.getElementById('stat-countries').textContent=totalCountries;
+  document.getElementById('stat-areas').textContent=AREAS.length;
 
-  const g = document.getElementById('areas-grid');
-  g.innerHTML = '';
-  AREAS.forEach(a => {
-    const d = document.createElement('div');
-    d.className = 'area-tile';
-    d.style.setProperty('--ac', a.hex);
-    d.innerHTML = `
-      <div class="at-icon">${a.icon}</div>
+  // World map — collect all active CCs
+  const activeCCs=new Set();
+  AREAS.forEach(a=>a.initiatives.forEach(i=>{
+    const meta=getMeta(i.country);
+    if(meta.cc)activeCCs.add(meta.cc);
+  }));
+  document.getElementById('world-map-container').innerHTML=buildWorldMapSVG(activeCCs,360,210);
+  document.getElementById('map-legend-text').textContent=`${activeCCs.size} countries represented`;
+
+  // Area tiles
+  const g=document.getElementById('areas-grid');
+  g.innerHTML='';
+  AREAS.forEach(a=>{
+    const d=document.createElement('div');
+    d.className='area-tile';
+    d.style.setProperty('--ac',a.hex);
+    d.innerHTML=`
+      <div class="at-icon"><svg viewBox="0 0 24 24">${a.icon}</svg></div>
       <div class="at-name">${a.label}</div>
       <div class="at-count">${a.initiatives.length} initiative${a.initiatives.length!==1?'s':''}</div>
       <div class="at-arrow">→</div>`;
-    d.onclick = () => openArea(a.id);
+    d.onclick=()=>openArea(a.id);
     g.appendChild(d);
   });
 }
 
-/* ─── AREA PAGE ──────────────────────────────────────── */
+/* ── AREA PAGE ── */
 function openArea(id){
-  activeArea = AREAS.find(a=>a.id===id);
-  if(!activeArea) return;
-  activeFilter = 'all';
-
-  const tb = document.getElementById('tb-area-name');
-  tb.textContent = activeArea.label;
-  tb.style.color = activeArea.hex;
-
-  document.getElementById('page-area').style.setProperty('--ac', activeArea.hex);
-  document.getElementById('ab-bg').textContent = String(AREAS.indexOf(activeArea)+1).padStart(2,'0');
-  const pill = document.getElementById('ab-pill');
-  pill.textContent = activeArea.icon + ' ' + activeArea.label;
-  pill.style.color = activeArea.hex;
-  document.getElementById('ab-title').textContent = activeArea.label + ' Initiatives';
-  document.getElementById('ab-sub').textContent =
-    `${activeArea.initiatives.length} initiatives across ${new Set(activeArea.initiatives.map(i=>i.country)).size} countries.`;
-
-  buildFilterBar();
-  buildCardGrid();
-  show('page-area');
+  activeArea=AREAS.find(a=>a.id===id);
+  if(!activeArea)return;
+  activeFilter='all';
+  const tb=document.getElementById('tb-area-name');
+  tb.textContent=activeArea.label;tb.style.color=activeArea.hex;
+  document.getElementById('page-area').style.setProperty('--ac',activeArea.hex);
+  document.getElementById('ab-bg').textContent=String(AREAS.indexOf(activeArea)+1).padStart(2,'0');
+  const pill=document.getElementById('ab-pill');
+  pill.innerHTML=`<svg viewBox="0 0 24 24" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2">${activeArea.icon}</svg> ${activeArea.label}`;
+  pill.style.color=activeArea.hex;
+  document.getElementById('ab-title').textContent=activeArea.label+' Initiatives';
+  document.getElementById('ab-sub').textContent=`${activeArea.initiatives.length} initiatives across ${new Set(activeArea.initiatives.map(i=>i.country)).size} countries.`;
+  buildFilterBar();buildCardGrid();show('page-area');
 }
 
 function buildFilterBar(){
-  const bar = document.getElementById('filter-bar');
-  bar.innerHTML = '';
-  const counts = {};
-  activeArea.initiatives.forEach(i=>{ counts[i.country]=(counts[i.country]||0)+1; });
-  bar.appendChild(makeTab('all','All',null,activeArea.initiatives.length,true));
+  const bar=document.getElementById('filter-bar');
+  bar.innerHTML='';
+  const counts={};
+  activeArea.initiatives.forEach(i=>{counts[i.country]=(counts[i.country]||0)+1;});
+  bar.appendChild(makeTab('all','All',null,null,activeArea.initiatives.length,true));
   Object.keys(counts).sort().forEach(c=>{
-    bar.appendChild(makeTab(c, c, flagOf(c), counts[c], false));
+    const meta=getMeta(c);
+    bar.appendChild(makeTab(c,meta.name,null,meta.cc,counts[c],false));
   });
 }
-function makeTab(key,label,flag,count,active){
-  const b = document.createElement('button');
-  b.className = 'ftab'+(active?' active':'');
-  b.innerHTML = (flag?`<span class="ftab-flag">${flag}</span>`:'')+`<span>${label}</span><span class="ftab-n">${count}</span>`;
-  b.onclick = ()=>{
-    activeFilter=key;
-    document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
-    b.classList.add('active');
-    buildCardGrid();
-  };
+function makeTab(key,label,flag,cc,count,active){
+  const b=document.createElement('button');
+  b.className='ftab'+(active?' active':'');
+  b.innerHTML=(cc?`<span class="ftab-cc">${cc}</span>`:'')+`<span>${label}</span><span class="ftab-n">${count}</span>`;
+  b.onclick=()=>{activeFilter=key;document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));b.classList.add('active');buildCardGrid();};
   return b;
 }
 
 function buildCardGrid(){
-  const zone = document.getElementById('cards-zone');
-  zone.innerHTML = '';
-  zone.style.setProperty('--ac', activeArea.hex);
-  const filtered = activeFilter==='all' ? activeArea.initiatives : activeArea.initiatives.filter(i=>i.country===activeFilter);
-  const byCountry = {};
-  filtered.forEach(i=>{ if(!byCountry[i.country]) byCountry[i.country]=[]; byCountry[i.country].push(i); });
+  const zone=document.getElementById('cards-zone');
+  zone.innerHTML='';
+  zone.style.setProperty('--ac',activeArea.hex);
+  const filtered=activeFilter==='all'?activeArea.initiatives:activeArea.initiatives.filter(i=>i.country===activeFilter);
+  const byCountry={};
+  filtered.forEach(i=>{if(!byCountry[i.country])byCountry[i.country]=[];byCountry[i.country].push(i);});
   Object.keys(byCountry).sort().forEach(country=>{
-    const items = byCountry[country];
-    const sec = document.createElement('div');
-    sec.className = 'country-section fu';
-    sec.innerHTML = `
+    const items=byCountry[country];
+    const meta=getMeta(country);
+    const sec=document.createElement('div');
+    sec.className='country-section fu';
+    sec.innerHTML=`
       <div class="cs-header">
-        <span class="cs-flag">${flagOf(country)}</span>
-        <span class="cs-name">${country}</span>
+        <div class="cs-map-thumb">${buildCountryBadge(country)}</div>
+        <span class="cs-cc">${meta.cc}</span>
+        <span class="cs-name">${meta.name}</span>
         <span class="cs-count">${items.length} initiative${items.length!==1?'s':''}</span>
       </div>
       <div class="cards-grid-inner" id="cgi-${country.replace(/\W/g,'_')}"></div>`;
     zone.appendChild(sec);
-    const grid = document.getElementById('cgi-'+country.replace(/\W/g,'_'));
-    items.forEach(init => grid.appendChild(makeCard(init)));
+    const grid=document.getElementById('cgi-'+country.replace(/\W/g,'_'));
+    items.forEach(init=>grid.appendChild(makeCard(init)));
   });
 }
-
 function makeCard(init){
-  const d = document.createElement('div');
-  d.className = 'init-card';
-  d.innerHTML = `
+  const d=document.createElement('div');
+  d.className='init-card';
+  d.innerHTML=`
     <div class="ic-lever ${leverCls(init.lever)}">${init.lever||'—'}</div>
     <div class="ic-title">${init.title}</div>
+    <div class="ic-desc">${init.desc}</div>
     <div class="ic-chips">
       ${init.cohort?`<span class="ic-chip">🎯 ${init.cohort}</span>`:''}
       ${init.scope?`<span class="ic-chip">${init.scope}</span>`:''}
     </div>
     <div class="ic-arrow">→</div>`;
-  d.onclick = () => openDetail(init);
+  d.onclick=()=>openDetail(init);
   return d;
 }
 
-/* ─── DETAIL PAGE ────────────────────────────────────── */
+/* ── DETAIL ── */
 function openDetail(init){
-  const acc = activeArea ? activeArea.hex : '#d4a84b';
-  const area = activeArea ? activeArea.label : '';
-  document.getElementById('detail-back-btn').onclick = ()=>show('page-area');
-  const crumb = document.getElementById('detail-crumb');
-  crumb.textContent = `${area} / ${init.country}`;
-  crumb.style.color = acc;
-  document.getElementById('page-detail').style.setProperty('--ac', acc);
+  const acc=activeArea?activeArea.hex:'#d4a84b';
+  const area=activeArea?activeArea.label:'';
+  const meta=getMeta(init.country);
+  document.getElementById('detail-back-btn').onclick=()=>show('page-area');
+  const crumb=document.getElementById('detail-crumb');
+  crumb.textContent=`${area} / ${meta.name} (${meta.cc})`;
+  crumb.style.color=acc;
+  document.getElementById('page-detail').style.setProperty('--ac',acc);
 
-  function row(label, val){
-    if(!val) return '';
-    return `<div class="snap-row"><span class="snap-label">${label}</span><span class="snap-val">${val}</span></div>`;
+  function row(label,val){
+    if(!val)return'';
+    return`<div class="snap-row"><span class="snap-label">${label}</span><span class="snap-val">${val}</span></div>`;
   }
-  function section(header, ...parts){
-    const filled = parts.filter(Boolean);
-    if(!filled.length) return '';
-    return `<div class="card-section">
+  function sec(header,...parts){
+    const filled=parts.filter(Boolean);
+    if(!filled.length)return'';
+    return`<div class="card-section">
       <div class="card-section-header">${header}</div>
       ${filled.map((p,i)=>`<div class="${i===0?'card-section-text':'card-section-sub'}">${p}</div>`).join('')}
     </div>`;
   }
 
-  document.getElementById('detail-body').innerHTML = `
+  // Guaranteed description paragraph
+  const descPara = init.desc || `${init.title} is an initiative implemented in ${meta.name} targeting ${init.cohort||'youth'} within the ${area} domain.`;
+
+  document.getElementById('detail-body').innerHTML=`
   <div class="country-card">
     <div class="card-header">
       <div class="card-h-title">${init.title}</div>
-      <div class="card-h-meta"><span>Area · Country</span>${area} &nbsp;·&nbsp; ${init.country}</div>
+      <div class="card-h-meta"><span>Area · Country</span>${area} &nbsp;·&nbsp; ${meta.name} (${meta.cc})</div>
     </div>
     <div class="card-body">
       <div class="card-left">
         <div class="card-map-zone">
-          <div class="card-map-flag">${flagOf(init.country)}</div>
-          <div class="card-map-country-name">${init.country}</div>
+          ${buildCountryBadge(init.country)}
+          <div class="card-map-cc">${meta.cc}</div>
+          <div class="card-map-name">${meta.name}</div>
         </div>
         <div class="card-snapshot">
           <div class="card-snapshot-header">Quick Facts</div>
           <div class="card-snapshot-table">
-            ${row('Target Cohort', init.cohort)}
-            ${row('Administrative Scope', init.scope)}
-            ${row('Lever', init.lever)}
-            ${row('Touchpoint Mechanism', init.touchpoint)}
-            ${row('Monitoring', init.monitoring)}
-            ${row('Indicators', init.indicators)}
+            ${row('Target Cohort',init.cohort)}
+            ${row('Administrative Scope',init.scope)}
+            ${row('Lever',init.lever)}
+            ${row('Monitoring',init.monitoring)}
+            ${row('Indicators',init.indicators)}
           </div>
         </div>
       </div>
       <div class="card-right">
-        ${section('Purpose of Intervention', init.purpose)}
-        ${section('Support Activities & Mechanisms', init.mechanisms, init.admin ? '<strong>Administration:</strong> '+init.admin : '')}
-        ${section('Enabling Factors',
-          [init.legal?'<strong>Legal & Political:</strong> '+init.legal:'', init.social?'<strong>Social:</strong> '+init.social:'', init.economic?'<strong>Economic:</strong> '+init.economic:''].filter(Boolean).join('<br><br>')
+        ${sec('What This Initiative Does', descPara)}
+        ${sec('Support Activities & Mechanisms', init.mechanisms||init.touchpoint, init.admin?'<strong>Administration:</strong> '+init.admin:'')}
+        ${sec('Enabling Factors',
+          [init.legal?'<strong>Legal & Political:</strong> '+init.legal:'',
+           init.social?'<strong>Social:</strong> '+init.social:'',
+           init.economic?'<strong>Economic:</strong> '+init.economic:''].filter(Boolean).join('<br><br>')
         )}
-        ${section('Outcomes & Impact',
-          [init.quantitative, init.outcomes].filter(Boolean).join('<br><br>'),
-          init.adoption ? '<strong>Adopted by others:</strong> '+init.adoption : ''
+        ${sec('Outcomes & Impact',
+          [init.quantitative,init.outcomes].filter(Boolean).join('<br><br>'),
+          init.adoption?'<strong>Adopted by others:</strong> '+init.adoption:''
         )}
       </div>
     </div>
-    ${init.remarks ? `<div class="card-footer"><div class="card-footer-header">Other Remarks</div><div class="card-footer-text">${init.remarks}</div></div>` : ''}
+    ${init.remarks?`<div class="card-footer"><div class="card-footer-header">Other Remarks</div><div class="card-footer-text">${init.remarks}</div></div>`:''}
   </div>`;
-
   show('page-detail');
 }
 
-/* ─── SCROLL TO TOP ──────────────────────────────────── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('stt').classList.toggle('vis', window.scrollY>400);
-});
-
-/* ─── START ──────────────────────────────────────────── */
+window.addEventListener('scroll',()=>{document.getElementById('stt').classList.toggle('vis',window.scrollY>400);});
 init();
 </script>
 </body>
